@@ -18,21 +18,27 @@ const linesOfBusiness = [
     { id: 108, quoteNumber: 'AC127PC', lineOfBusiness: 15 }
   ];
 
-  // console.log(recentQuotes);
+  console.log(recentQuotes);
 
   let map = new Map();
+  let count = 1
 
   for(let i = 0; i < recentQuotes.length; i++){
 
     let currentLine = recentQuotes[i].lineOfBusiness;
 
-    let count = 1;
+    for(let j = 0; j < recentQuotes.length; j++){
+      map.set(currentLine, count);
 
-    map.set(currentLine,count);
-
-    if(map.get(currentLine) != null){
-      map.set(currentLine, map.get(currentLine) + 1)
+      if(map.has(currentLine)){
+        count ++;
+        map.set(currentLine,count);
+      }
     }
+
+
   }
 
-  console.log(map);
+  console.log(count);
+
+  console.log(map)

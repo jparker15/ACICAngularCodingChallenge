@@ -18,27 +18,32 @@ const linesOfBusiness = [
     { id: 108, quoteNumber: 'AC127PC', lineOfBusiness: 15 }
   ];
 
-  console.log(recentQuotes);
 
-  let map = new Map();
-  let count = 1
 
-  for(let i = 0; i < recentQuotes.length; i++){
 
-    let currentLine = recentQuotes[i].lineOfBusiness;
 
-    for(let j = 0; j < recentQuotes.length; j++){
-      map.set(currentLine, count);
+  const lines = [];
 
-      if(map.has(currentLine)){
-        count ++;
-        map.set(currentLine,count);
-      }
+  recentQuotes.forEach(quote => {
+    lines.push(quote.lineOfBusiness);
+  });
+
+function getFrequency(arr){
+  let freq = {};
+
+  for(let i = 0; i < arr.length; i++){
+
+    let num = arr[i];
+    
+    if(freq[num]){
+      freq[num]++;
     }
-
-
+    else{
+      freq[num] = 1;
+    }
   }
 
-  console.log(count);
+  return freq;
+}
 
-  console.log(map)
+console.log(getFrequency(lines));

@@ -47,3 +47,9 @@ Insured - Person or business buying insurance coverage. They are the customer in
 
 Line of Business - This is a collection of related insurance coverages, that represent the specific needs of an insured. For example, the line of business
 "Commercial Property" includes coverages such as "Building", "Business Income", and "Signs".
+
+## Comamnds
+
+`npm start`
+
+`nvm use 16.16.0`

@@ -8,7 +8,7 @@ import { LineOfBusiness } from './LineOfBusiness';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const linesOfBusiness = [
-      { id: 11, name: 'General Liability', description: 'Liability coverage for businesses.' },
+      { id: 11, name: 'General Liability', description: 'Liability coverage for businesses.'},
       { id: 12, name: 'Commercial Property', description: 'Property coverage for businesses.' },
       { id: 13, name: 'Inland Marine', description: 'Coverage for tools and machinery on job sites.' },
       { id: 14, name: 'Ocean Marine', description: 'Coverage for dock and boat repair businesses.' },
@@ -27,6 +27,17 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 108, quoteNumber: 'AC127PC', lineOfBusiness: 15 }
     ];
 
+    linesOfBusiness.forEach(line => {
+      Object.defineProperty(line, 'amount', {
+        value: 1
+      })
+
+    });
+    
+    
+    console.log(linesOfBusiness);
+    
+    
     return {linesOfBusiness};
   }
 
@@ -36,6 +47,8 @@ export class InMemoryDataService implements InMemoryDbService {
   // if the lines of business array is not empty, the method below returns the highest
   // line of business id + 1.
   genId(linesOfBusiness: LineOfBusiness[]): number {
+    console.log("tst");
+    
     return linesOfBusiness.length > 0 ? Math.max(...linesOfBusiness.map(lineOfBusiness => lineOfBusiness.id)) + 1 : 11;
   }
 }

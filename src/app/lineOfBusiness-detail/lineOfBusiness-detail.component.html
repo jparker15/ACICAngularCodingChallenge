@@ -1,6 +1,7 @@
 <div *ngIf="lineOfBusiness">
   <h2>{{lineOfBusiness.name | uppercase}} Details</h2>
   <div><span>id: </span>{{lineOfBusiness.id}}</div>
+  <div><span>amount:</span>{{lineOfBusiness.amount}}</div>
   <div>
     <label for="lineOfBusiness-name">Line Of Business Name: </label>
     <input id="lineOfBusiness-name" [(ngModel)]="lineOfBusiness.name" placeholder="Line Of Business Name"/>

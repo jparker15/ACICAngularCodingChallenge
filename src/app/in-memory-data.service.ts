@@ -26,16 +26,27 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 107, quoteNumber: 'AC126PC', lineOfBusiness: 13 },
       { id: 108, quoteNumber: 'AC127PC', lineOfBusiness: 15 }
     ];
-
+    
+    //Adds 'amount' property to each lineOfBusiness object
     linesOfBusiness.forEach(line => {
       Object.defineProperty(line, 'amount', {
-        value: 1
+        value: 0
       })
-
     });
+
+    //Iterate through recentQuotes and add the frequency of each lineOfBusiness to amount property in linesOfBusiness objects
+      for(let i = 0;i < recentQuotes.length;i++){
+        let recentLob = recentQuotes[i].lineOfBusiness;
+        console.log(recentLob);
+        if(recentQuotes[i].lineOfBusiness)
+        // console.log(linesOfBusiness[i]);
+        console.log(i);
+        
+      }
+        
+      
     
-    
-    console.log(linesOfBusiness);
+    // console.log(linesOfBusiness);
     
     
     return {linesOfBusiness};
